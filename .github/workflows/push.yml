@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ master ]
-  schedule:
-    - cron: 0 0 1 * *  
   workflow_dispatch:
 
 jobs:
@@ -27,13 +25,13 @@ jobs:
       with:
         push: true
         tags: |
-          ceifa/garrysmod:debian
-          ceifa/garrysmod:latest
+          turtleking/garrysmod:debian
+          turtleking/garrysmod:latest
         file: debian.Dockerfile
 
     - name: Push debian-x64-root image
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ceifa/garrysmod:debian-x64-root
+        tags: turtleking/garrysmod:debian-x64-root
         file: debian-x64-root.Dockerfile
